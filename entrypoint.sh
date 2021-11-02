@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+echo $1 > ~/.clasprc.json
+
 CLASP=$(cat <<-END
     {
         "scriptId": "$2"
@@ -16,7 +18,6 @@ if [ -n "$3" ]; then
   fi
 fi
 
-echo $1 > .clasprc.json
 echo $CLASP > .clasp.json
 
 if [ "$4" = "push" ]; then
