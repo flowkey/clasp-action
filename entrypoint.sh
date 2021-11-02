@@ -1,11 +1,7 @@
 #!/bin/sh -l
 
-CLASPRC=$(cat <<-END
-    $1
-END
-)
 
-echo $CLASPRC > ~/.clasprc.json
+echo $1 > ~/.clasprc.json
 
 CLASP=$(cat <<-END
     {
