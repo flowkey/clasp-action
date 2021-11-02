@@ -4,25 +4,9 @@ This action uses [clasp](https://github.com/google/clasp) to push or deploy to [
 
 ## Inputs
 
-### `accessToken`
+### `clasprcJson`
 
-**Required** `access_token` written in `.clasprc.json`.
-
-### `idToken`
-
-**Required** `id_token` written in `.clasprc.json`.
-
-### `refreshToken`
-
-**Required** `refresh_token` written in `.clasprc.json`.
-
-### `clientId`
-
-**Required** `refresh_token` written in `.clasprc.json`.
-
-### `clientSecret`
-
-**Required** `clientSecret` written in `.clasprc.json`.
+**Required** Full `.clasprc.json` file. (How to create it: https://github.com/google/clasp/blob/master/docs/run.md#prerequisites)
 
 ### `scriptId`
 
@@ -54,73 +38,58 @@ Deploy ID that will be updated with this push.
 ### Case to push
 
 ```yaml
-- uses: daikikatsuragawa/clasp-action@v1.1.0
+- uses: flowkey/clasp-action@v2.0.0
   with:
-    accessToken: ${{ secrets.ACCESS_TOKEN }}
-    idToken: ${{ secrets.ID_TOKEN }}
-    refreshToken: ${{ secrets.REFRESH_TOKEN }}
-    clientId: ${{ secrets.CLIENT_ID }}
+    clasprcJson: ${{ secrets.CLASPRC_JSON }}
     clientSecret: ${{ secrets.CLIENT_SECRET }}
     scriptId: ${{ secrets.SCRIPT_ID }}
-    command: 'push'
+    command: "push"
 ```
 
 ### Case to deploy
 
 ```yaml
-- uses: daikikatsuragawa/clasp-action@v1.1.0
+- uses: flowkey/clasp-action@v2.0.0
   with:
-    accessToken: ${{ secrets.ACCESS_TOKEN }}
-    idToken: ${{ secrets.ID_TOKEN }}
-    refreshToken: ${{ secrets.REFRESH_TOKEN }}
-    clientId: ${{ secrets.CLIENT_ID }}
+    clasprcJson: ${{ secrets.CLASPRC_JSON }}
     clientSecret: ${{ secrets.CLIENT_SECRET }}
     scriptId: ${{ secrets.SCRIPT_ID }}
-    command: 'deploy'
+    command: "deploy"
 ```
 
 ### Case to deploy with description
 
 ```yaml
-- uses: daikikatsuragawa/clasp-action@v1.1.0
+- uses: flowkey/clasp-action@v2.0.0
   with:
-    accessToken: ${{ secrets.ACCESS_TOKEN }}
-    idToken: ${{ secrets.ID_TOKEN }}
-    refreshToken: ${{ secrets.REFRESH_TOKEN }}
-    clientId: ${{ secrets.CLIENT_ID }}
+    clasprcJson: ${{ secrets.CLASPRC_JSON }}
     clientSecret: ${{ secrets.CLIENT_SECRET }}
     scriptId: ${{ secrets.SCRIPT_ID }}
-    command: 'deploy'
-    description: 'Sample description'
+    command: "deploy"
+    description: "Sample description"
 ```
 
 ### Case to specify the directory where scripts are stored
 
 ```yaml
-- uses: daikikatsuragawa/clasp-action@v1.1.0
+- uses: flowkey/clasp-action@v2.0.0
   with:
-    accessToken: ${{ secrets.ACCESS_TOKEN }}
-    idToken: ${{ secrets.ID_TOKEN }}
-    refreshToken: ${{ secrets.REFRESH_TOKEN }}
-    clientId: ${{ secrets.CLIENT_ID }}     
+    clasprcJson: ${{ secrets.CLASPRC_JSON }}
     clientSecret: ${{ secrets.CLIENT_SECRET }}
     scriptId: ${{ secrets.SCRIPT_ID }}
-    rootDir: 'src'
-    command: 'push'
+    rootDir: "src"
+    command: "push"
 ```
 
 ### Case to update a specific deploy
 
 ```yaml
-- uses: daikikatsuragawa/clasp-action@v1.1.0
+- uses: flowkey/clasp-action@v2.0.0
   with:
-    accessToken: ${{ secrets.ACCESS_TOKEN }}
-    idToken: ${{ secrets.ID_TOKEN }}
-    refreshToken: ${{ secrets.REFRESH_TOKEN }}
-    clientId: ${{ secrets.CLIENT_ID }}
+    clasprcJson: ${{ secrets.CLASPRC_JSON }}
     clientSecret: ${{ secrets.CLIENT_SECRET }}
     scriptId: ${{ secrets.SCRIPT_ID }}
-    command: 'deploy'
+    command: "deploy"
     deployId: ${{ secrets.DEPLOY_ID }}
 ```
 
